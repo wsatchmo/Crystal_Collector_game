@@ -4,78 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>YMH Fight Club</title>
+    <title>Crystal Collector</title>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <div>
-        <h1>YMH Fight Club</h1>
+        <h1>Crystal Collector</h1>
     </div>
     <div>    <!--MAKE ALL OT THE IMAGES SQUARE-->
-        <h3>Choose your fighter:</h3>
-        <div class="fighterbox">
-            <img class="tommy-buns fighter" src="images/">
-            <p>Tommy Sugar</p>
-        </div>
-        <div class="fighterbox">
-            <img class="christina-p fighter" src="">
-            <p>Main Mommy</p>
-        </div>
-        <div class="fighterbox">
-            <img class="rpc fighter" src="">
-            <p>Mr. Champagne</p>
-        </div>
-        <div class="fighterbox">
-            <img class="joerogan fighter" src="">
-            <p>Roe Jogan</p>
-        </div>
-        <div class="fighterbox">
-            <img class="julia fighter" src="">
-            <p>Good Morning!</p>
-        </div>
-        <div class="fighterbox">
-            <img class="ari fighter" src="">
-            <p>Ari Shaffer</p>
-        </div>
-        <div class="fighterbox">
-            <img class="sicklecell fighter" src="">
-            <p>Ryan The Sickle</p>
-        </div>
-        <div class="fighterbox">
-            <img class="bertisfat fighter" src="images/eHonda.jpg">
-            <p>Bert</p>
-        </div>
-        <div class="fighterbox">
-            <img class="garthbrooks fighter" src="">
-            <p>G. Brooks</p>
-        </div>
-        <div class="fighterbox">
-            <img class="glassin-guy fighter" src="">
-            <p>Ultimate Dad</p>
-        </div>
-        <div class="fighterbox">
-            <img class="jeans fighter" src="">
-            <p>The Jeans</p>
-        </div>
-        <div class="fighterbox">
-            <img class="random fighter" src="">
-            <p>The Water Champ</p>  <!--Make this one a random player-->
-        </div>
-
         <div>
-            <button class="">READY</button>
-            <button class="">QUIT</button>
-            <button class="">MUSIC</button>
+            <h3>Goal Number:</h3>
+            <h3 class="goalnum">-----</h3>
+            <button class="startgame btn">Start Game</button>
+        </div>
+        <div>
+            <div class="crystalcontainer">
+                <img src="./images/bluecrystal.jpg" alt="bluecrystal" class="bluecrystal crystalimg">
+                <button class="btn">Blue Crystal</button>
+            </div> 
+            <div class="crystalcontainer">
+                <img src="./images/redcrystal.jpg" alt="redcrystal" class="redcrystal crystalimg">
+                <button class="btn">Red Crystal</button>
+            </div> 
+            <div class="crystalcontainer">
+                <img src="./images/yellowcrystal.jpg" alt="yellowcrystal" class="yellowcrystal crystalimg">
+                <button class="btn">Yellow Crystal</button>
+            </div> 
+            <div class="crystalcontainer">
+                <img src="./images/multicrystal.jpg" alt="multicrystal" class="multicrystal crystalimg">
+                <button class="btn">Multi Crystal</button>
+            </div> 
             <p></p>
         </div>
     </div>
 
     <script>
-        //jQuery
-        //jQuery
-        //jQuery
+        
+
+        $(".startgame").click(function(){
+
+            var goalNum = Math.floor(Math.random() * 100) + 20;
+
+            $(".goalnum").text(goalNum);
+        });
+
+
+        
+        //show player random number between 20 - 120
+
+        //give each cystal a random value between 1 - 12
+        
+        //whenever player clicks a crystal, add that value to the player's score / number
+
+        //compare their number to the number chosen at beginning
+            //if it matches, they win the round
+            //if it goes over, they lose the round
+            //start the game over
+
+        //begin again; player sees new random number, crystals are worth different numbers, etc
+
     </script>
     
 </body>
