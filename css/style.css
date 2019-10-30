@@ -2,10 +2,47 @@
     width: 200px;
     height: 200px;
     float: left;
+    margin: 10px;
+    position: relative;
+}
+
+.crystalmain{
+    float: left;
 }
 
 .crystalimg {
-    width: 200px;
     height: 200px;
-    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.textcontain{
+    float: left;
+    border: 3px solid black;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.crystalbtn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(114, 112, 112);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: .9;
+}
+
+.crystalbtn:hover{
+    background-color: rgb(113, 201, 212);
+}
+
+.startgame{
+    font-size: 32px;
+    border-radius: 10px;
 }

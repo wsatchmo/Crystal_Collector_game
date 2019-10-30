@@ -8,96 +8,52 @@
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <div>
         <h1>Crystal Collector</h1>
     </div>
-    <div>    <!--MAKE ALL OT THE IMAGES SQUARE-->
-        <div>
+    <div class="maincontent">    <!--MAKE ALL OT THE IMAGES SQUARE-->
+        <div class="textcontain">
             <h3>Goal Number:</h3>
             <h3 class="goalnum">-----</h3>
-            <button class="startgame btn">Start Game</button>
+            <button class="startgame btn-success">Start Game</button>
         </div>
-        <div>
+        <div class="textcontain">
             <h3>Score Number:</h3>
             <h3 class="scorenum">-----</h3>
+            <h5>Game Status:</h5>
+            <h5 class="gamestat">-----</h5>
         </div>
-        <div>
+        <div class="textcontain">
+            <h5>Wins:</h5>
+            <h5 class="wins">-----</h5>
+            <h5>Losses:</h5>
+            <h5 class="losses">-----</h5>
+        </div>
+        <div class="maincontent crystalmain">
             <div class="crystalcontainer">
-                <img src="./images/bluecrystal.jpg" alt="bluecrystal" class="crystalimg">
-                <button class="btn bluecrystal">Blue Crystal</button>
+                <img src="./images/bluecrystal.jpg" alt="bluecrystal" class="crystalimg blue">
+                <button class="btn bluecrystal crystalbtn">Blue Crystal</button>
             </div> 
             <div class="crystalcontainer">
-                <img src="./images/redcrystal.jpg" alt="redcrystal" class="crystalimg">
-                <button class="btn redcrystal">Red Crystal</button>
+                <img src="./images/redcrystal.jpg" alt="redcrystal" class="crystalimg red">
+                <button class="btn redcrystal crystalbtn">Red Crystal</button>
             </div> 
             <div class="crystalcontainer">
-                <img src="./images/yellowcrystal.jpg" alt="yellowcrystal" class="crystalimg">
-                <button class="btn yellowcrystal">Yellow Crystal</button>
+                <img src="./images/yellowcrystal.jpg" alt="yellowcrystal" class="crystalimg yellow">
+                <button class="btn yellowcrystal crystalbtn">Yellow Crystal</button>
             </div> 
             <div class="crystalcontainer">
-                <img src="./images/multicrystal.jpg" alt="multicrystal" class="crystalimg">
-                <button class="btn multicrystal">Multi Crystal</button>
+                <img src="./images/multicrystal.jpg" alt="multicrystal" class="crystalimg multi">
+                <button class="btn multicrystal crystalbtn">Multi Crystal</button>
             </div> 
-            <p></p>
         </div>
     </div>
 
-    <script>
-        var winCount = 0;
-        var lossCount = 0;
-
-        $(".startgame").click(function game(){
-            var goalNum = Math.floor(Math.random() * 100) + 20;
-            var scoreNum = 0;
-                //show player random number between 20 - 120
-            $(".goalnum").text(goalNum);
-                //update scorenum
-            $(".scorenum").text(scoreNum);
-                //RANDOM NUM GENERATORS
-            var blueRandom = Math.floor(Math.random() * 6) + 1;
-            var redRandom = Math.floor(Math.random() * 10) + 2;
-            var yellowRandom = Math.floor(Math.random() * 8) + 4;
-            var multiRandom = Math.floor(Math.random() * 6) + 6;
-                //give each cystal a random value between 1 - 12
-
-                //whenever player clicks a crystal, add that value to the player's score / number
-            $(".bluecrystal").click(function(){
-                $(".scorenum").text(scoreNum += blueRandom);
-            });
-            $(".redcrystal").click(function(){
-                $(".scorenum").text(scoreNum += redRandom);
-            });
-            $(".yellowcrystal").click(function(){
-                $(".scorenum").text(scoreNum += yellowRandom);
-            });
-            $(".multicrystal").click(function(){
-                $(".scorenum").text(scoreNum += multiRandom);
-            });
-            
-                //compare their number to the number chosen at beginning
-            function scoreCheck(scoreNum, goalNum){
-                    //if it matches, they win the round
-                if (scoreNum === goalNum){
-                    $(".scorenum").text("You Win!");
-                    winCount++;
-                    game();
-                    //if it goes over, they lose the round
-                } else if (scoreNum > goalNum){
-                    $(".scorenum").text("Bust! Try Again!");
-                    lossCount++;
-                    game();
-                }
-                    //if either of these are true start the game over
-            }
-
-        });
-
-        //begin again; player sees new random number, crystals are worth different numbers, etc
-
-    </script>
+    <script src="./javascript/game.js"></script>
     
 </body>
 </html>

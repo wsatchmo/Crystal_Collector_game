@@ -1,34 +1,71 @@
-/*
+var winCount = 0;
+var lossCount = 0;
 
-1. [Watch the demo](https://youtu.be/yNI0l2FMeCk).
 
-2. The player will have to guess the answer, just like in Word Guess. This time, though, the player will guess with numbers instead of letters. 
+$(".startgame").click(function game(){
+    //TELL IT TO ONLY RUN ONE INSTANCE AT A TIME
 
-3. Here's how the app works:
+    var goalNum = Math.floor(Math.random() * 100) + 20;
+    var scoreNum = 0;
+        //show player random number between 20 - 120
+    $(".goalnum").text(goalNum);
+        //update scorenum
+    $(".scorenum").text(scoreNum);
+    $(".wins").text(winCount);
+    $(".losses").text(lossCount);
+        //RANDOM NUM GENERATORS :: give each cystal a random value between 1 - 12
+    var blueRandom = Math.floor(Math.random() * 3) + 1;
+    var redRandom = Math.floor(Math.random() * 8) + 3;
+    var yellowRandom = Math.floor(Math.random() * 7) + 5;
+    var multiRandom = Math.floor(Math.random() * 6) + 7;
 
-   * There will be four crystals displayed as buttons on the page.
-
-   * The player will be shown a random number at the start of the game.
-
-   * When the player clicks on a crystal, it will add a specific amount of points to the player's total score. 
-
-     * Your game will hide this amount until the player clicks a crystal.
-     * When they do click one, update the player's score counter.
-
-   * The player wins if their total score matches the random number from the beginning of the game.
-
-   * The player loses if their score goes above the random number.
-
-   * The game restarts whenever the player wins or loses.
-
-     * When the game begins again, the player should see a new random number. Also, all the crystals will have four new hidden values. 
-     Of course, the user's score (and score counter) will reset to zero.
-
-   * The app should show the number of games the player wins and loses. To that end, do not refresh the page as a means to restart the game.
-
-##### Option 1 Game design notes
-
-* The random number shown at the start of the game should be between 19 - 120.
-
-* Each crystal should have a random hidden value between 1 - 12.  */
-
+        //whenever player clicks a crystal, add that value to the player's score / number
+    $(".bluecrystal").click(function(){
+        scoreNum += blueRandom;
+        $(".scorenum").text(scoreNum);
+        console.log("Scorenum is :" + scoreNum);
+        console.log("goalnum is :" + goalNum);
+        scoreCheck();
+    });
+    $(".redcrystal").click(function(){
+        scoreNum += redRandom;
+        $(".scorenum").text(scoreNum);
+        console.log("Scorenum is :" + scoreNum);
+        console.log("goalnum is :" + goalNum);
+        scoreCheck();
+    });
+    $(".yellowcrystal").click(function(){
+        scoreNum += yellowRandom;
+        $(".scorenum").text(scoreNum);
+        console.log("Scorenum is :" + scoreNum);
+        console.log("goalnum is :" + goalNum);
+        scoreCheck();
+    });
+    $(".multicrystal").click(function(){
+        scoreNum += multiRandom;
+        $(".scorenum").text(scoreNum);
+        console.log("Scorenum is :" + scoreNum);
+        console.log("goalnum is :" + goalNum);
+        scoreCheck();
+    });
+    
+        //compare their number to the number chosen at beginning
+    function scoreCheck(){
+            //if it matches, they win the round
+        if (scoreNum === goalNum){
+            $(".gamestat").text("Round Won!");
+            winCount++;
+            scoreNum = 0;
+            $(".scorenum").text(scoreNum)
+            game();
+            //if it goes over, they lose the round
+        } else if (scoreNum > goalNum){
+            $(".gamestat").text("Try Again!");
+            lossCount++;
+            scoreNum = 0;
+            $(".scorenum").text(scoreNum)
+            game();
+        }
+            //if either of these are true start the game over
+    }
+});
