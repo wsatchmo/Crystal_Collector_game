@@ -1,81 +1,98 @@
 var winCount = 0;
 var lossCount = 0;
+var blueRandom;
+var redRandom;
+var yellowRandom;
+var multiRandom;
+var scoreNum;
+var goalNum;
 
-var running = false;
+function clearScore(){
+    //reset wins and losses and display
+    winCount = 0;
+    lossCount = 0;
+    $(".wins").text(winCount);
+    $(".losses").text(lossCount);
+    newGame();
+}
+$(".startgame").click(clearScore);
 
-$(".startgame").click(function game(){
-    //TELL IT TO ONLY RUN ONE INSTANCE AT A TIME
-    if (running === true){
-        console.log("Only one game instance at a time!");
-        return;
-    } else {
-        running = true;
-
-        var goalNum = Math.floor(Math.random() * 100) + 20;
-        var scoreNum = 0;
-            //show player random number between 20 - 120
-        $(".goalnum").text(goalNum);
-            //update scorenum
-        $(".scorenum").text(scoreNum);
-        $(".wins").text(winCount);
-        $(".losses").text(lossCount);
-            //RANDOM NUM GENERATORS :: give each cystal a random value between 1 - 12
-        var blueRandom = Math.floor(Math.random() * 3) + 1;
-        var redRandom = Math.floor(Math.random() * 8) + 3;
-        var yellowRandom = Math.floor(Math.random() * 7) + 5;
-        var multiRandom = Math.floor(Math.random() * 6) + 7;
-
-            //whenever player clicks a crystal, add that value to the player's score / number
-        $(".bluecrystal").click(function(){
-            scoreNum += blueRandom;
-            $(".scorenum").text(scoreNum);
-            console.log("Scorenum is :" + scoreNum);
-            console.log("goalnum is :" + goalNum);
-            scoreCheck();
-        });
-        $(".redcrystal").click(function(){
-            scoreNum += redRandom;
-            $(".scorenum").text(scoreNum);
-            console.log("Scorenum is :" + scoreNum);
-            console.log("goalnum is :" + goalNum);
-            scoreCheck();
-        });
-        $(".yellowcrystal").click(function(){
-            scoreNum += yellowRandom;
-            $(".scorenum").text(scoreNum);
-            console.log("Scorenum is :" + scoreNum);
-            console.log("goalnum is :" + goalNum);
-            scoreCheck();
-        });
-        $(".multicrystal").click(function(){
-            scoreNum += multiRandom;
-            $(".scorenum").text(scoreNum);
-            console.log("Scorenum is :" + scoreNum);
-            console.log("goalnum is :" + goalNum);
-            scoreCheck();
-        });
-        
-            //compare their number to the number chosen at beginning
-        function scoreCheck(){
-                //if it matches, they win the round
-            if (scoreNum === goalNum){
-                $(".gamestat").text("Round Won!");
-                winCount++;
-                scoreNum = 0;
-                $(".scorenum").text(scoreNum);
-                game();
-                //if it goes over, they lose the round
-            } else if (scoreNum > goalNum){
-                $(".gamestat").text("Try Again!");
-                lossCount++;
-                scoreNum = 0;
-                $(".scorenum").text(scoreNum);
-                running = true;
-                game();
-            }
-            return;
-                //if either of these are true start the game over
-        }
-
+$(".bluecrystal").click(function(){
+    //add to scorenum and display; check score against goal
+    scoreNum += blueRandom;
+    $(".scorenum").text(scoreNum);
+    scoreCheck();
+    //so it doesn't display NaN in score number
+    if (isNaN(scoreNum)){
+        $(".scorenum").text("Press Start");
+    }
+}); //repeat for other crystals
+$(".redcrystal").click(function(){
+    scoreNum += redRandom;
+    $(".scorenum").text(scoreNum);
+    scoreCheck();
+    if (isNaN(scoreNum)){
+        $(".scorenum").text("Press Start");
     }
 });
+$(".yellowcrystal").click(function(){
+    scoreNum += yellowRandom;
+    $(".scorenum").text(scoreNum);
+    scoreCheck();
+    if (isNaN(scoreNum)){
+        $(".scorenum").text("Press Start");
+    }
+});
+$(".multicrystal").click(function(){
+    scoreNum += multiRandom;
+    $(".scorenum").text(scoreNum);
+    scoreCheck();
+    if (isNaN(scoreNum)){
+        $(".scorenum").text("Press Start");
+    }
+});
+
+function newGame(){
+    //set goal number and update it
+    goalNum = Math.floor(Math.random() * 100) + 20;
+    $(".goalnum").text(goalNum);
+    //set score number and update it
+    scoreNum = 0;
+    $(".scorenum").text(scoreNum);
+    //set crystal worths
+    blueRandom = Math.floor(Math.random() * 3) + 2;
+    redRandom = Math.floor(Math.random() * 7) + 3;
+    yellowRandom = Math.floor(Math.random() * 7) + 5;
+    multiRandom = Math.floor(Math.random() * 8) + 7;
+    //display on button
+    $(".bluecrystal").text("Blue Crystal: " + blueRandom);
+    $(".redcrystal").text("Red Crystal: " + redRandom);
+    $(".yellowcrystal").text("Yellow Crystal: " + yellowRandom);
+    $(".multicrystal").text("Multi Crystal: " + multiRandom);
+}
+
+function scoreCheck(){
+    if (scoreNum === goalNum){
+        //tell them they won
+        $(".gamestat").text("Round Won!");
+        //increase wins and display
+        winCount++;
+        $(".wins").text(winCount);
+        //reset scoreNum
+        scoreNum = 0;
+        $(".scorenum").text(scoreNum);
+        //start a new game
+        newGame();
+    } else if (scoreNum > goalNum){
+        //tell them they lost
+        $(".gamestat").text("Try Again!");
+        //increase losses and display
+        lossCount++;
+        $(".losses").text(lossCount);
+        //reset scoreNum
+        scoreNum = 0;
+        $(".scorenum").text(scoreNum);
+        //start a new game
+        newGame();
+    }
+}      
