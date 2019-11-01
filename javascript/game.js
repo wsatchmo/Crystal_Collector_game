@@ -51,24 +51,43 @@ $(".multicrystal").click(function(){
         $(".scorenum").text("Press Start");
     }
 });
+$(".blackcrystal").click(function(){
+    scoreNum += blackRandom;
+    $(".scorenum").text(scoreNum);
+    scoreCheck();
+    if (isNaN(scoreNum)){
+        $(".scorenum").text("Press Start");
+    }
+});
+$(".whitecrystal").click(function(){
+    scoreNum -= whiteRandom;
+    $(".scorenum").text(scoreNum);
+    scoreCheck();
+    if (isNaN(scoreNum)){
+        $(".scorenum").text("Press Start");
+    }
+});
 
 function newGame(){
     //set goal number and update it
-    goalNum = Math.floor(Math.random() * 100) + 20;
+    goalNum = Math.floor(Math.random() * 100) + 50;
     $(".goalnum").text(goalNum);
     //set score number and update it
     scoreNum = 0;
     $(".scorenum").text(scoreNum);
     //set crystal worths
-    blueRandom = Math.floor(Math.random() * 3) + 2;
-    redRandom = Math.floor(Math.random() * 7) + 3;
-    yellowRandom = Math.floor(Math.random() * 7) + 5;
-    multiRandom = Math.floor(Math.random() * 8) + 7;
+    blueRandom = Math.floor(Math.random() * 3) + 3;
+    redRandom = Math.floor(Math.random() * 7) + 5;
+    yellowRandom = Math.floor(Math.random() * 7) + 7;
+    multiRandom = Math.floor(Math.random() * 8) + 10;
+    blackRandom = Math.floor(Math.random() * 40) + 2;
+    whiteRandom = Math.floor(Math.random() * 5) + 7;
     //display on button
     $(".bluecrystal").text("Blue Crystal: " + blueRandom);
     $(".redcrystal").text("Red Crystal: " + redRandom);
     $(".yellowcrystal").text("Yellow Crystal: " + yellowRandom);
     $(".multicrystal").text("Multi Crystal: " + multiRandom);
+    $(".whitecrystal").text("White Crystal: -" + whiteRandom);
 }
 
 function scoreCheck(){

@@ -1,13 +1,95 @@
+html, body{
+    min-width: 320px;
+    max-width: 1614px;
+}
+
+html {
+    height: 100%;
+    margin: auto;
+    overflow: scroll;
+}
+
+@font-face {
+    font-family: 'Blanka-Regular';
+    src: url('../fonts/Blanka-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Perisphere';
+    src: url('../fonts/Perisphere.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chronic-Normal';
+    src: url('../fonts/Chronic-Normal.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Chronic-Outline';
+    src: url('../fonts/Chronic-Outline.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.background{
+    background-image: url(../images/crystalback.jpg);
+    background-size: 100% 100%;
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.heading{
+    padding: 10px;
+    margin: 10px;
+    font-size: 47px;
+    font-family: Chronic-Outline;
+    text-align: center;
+}
+
 .crystalcontainer{
     width: 200px;
     height: 200px;
-    float: left;
     margin: 10px;
-    position: relative;
+}
+
+.content{
+    background-color: white;
+    height: 100%;
+    margin: 5%;
+    margin-top: 50px;
+    opacity: .9;
+    border-radius: 5%;
+    overflow: auto;
+    max-width: 1614px;
+}
+
+.maincontent{
+    margin-left: .25%;
+    width: 100%;
+    border-radius: 4%;
+    display: inline-flex;
+    font-family: Perisphere;
 }
 
 .crystalmain{
-    float: left;
+    font-family: Chronic-Normal;
+    top: 30%;
+    width: 97%;
+    left: 5%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .crystalimg {
@@ -19,23 +101,33 @@
 
 .textcontain{
     float: left;
-    border: 3px solid black;
+    height: 200px;
+    border-width: 3px;
+    border-style: solid;
+    border-image: 
+        linear-gradient(to bottom, rgb(31, 28, 32), rgb(41, 201, 153), rgb(234, 0, 255)) 1 stretch;
     border-radius: 30px;
     padding: 20px;
     margin: 10px;
+    flex: 120px;
+}
+
+.center-text{
+    text-align: center;
 }
 
 .crystalbtn{
-    position: absolute;
-    top: 50%;
+    position: relative;
+    bottom: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: rgb(114, 112, 112);
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     opacity: .9;
+    text-align: center;
 }
 
 .crystalbtn:hover{
@@ -45,4 +137,103 @@
 .startgame{
     font-size: 32px;
     border-radius: 10px;
+    width: 100%;
+}
+
+.footer{
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.footer-upper{
+    height: 10px;
+    background-image: linear-gradient(to right, rgb(15, 202, 162), rgb(212, 16, 203));
+}
+
+.footer-lower{
+    background-image: linear-gradient(to right, black, #333, black);
+    height: 40px;
+}
+
+.logo-img{
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    bottom: 0px;
+    display: block;
+    margin: 0 50% 0 50%;
+    z-index: 3;
+}
+
+@media screen and (min-width: 1200px){
+    .crystalcontainer{
+        width: 250px;
+        height: 250px;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 758px){
+    .crystalcontainer{
+        width: 150px;
+        height: 150px;
+        margin: 5px;
+    }
+    .crystalbtn{
+        font-size: 12px;
+    }
+    .heading{
+        padding: 10px;
+        margin: 10px;
+        font-size: 38px;
+        text-align: center;
+    }
+    h3, h2{
+        font-size: 20px;
+    }
+    .startgame, h5{
+        font-size: 18px;
+    }
+    .maincontent{
+        height: 220px;
+    }
+}
+
+@media screen and (max-width: 410px){
+    .maincontent{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .crystalmain{
+        margin-top: 200px;
+    }
+    .content{
+        margin-left: 0%;
+        margin-right: 0%;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 329px){
+    .textcontain{
+        font-size: 10px;
+    }
+    .maincontent{
+        height: 100px;
+    }
+    .crystalmain{
+        margin-top: 350px;
+        margin-left: 4%;
+    }
+    .crystalcontainer{
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        margin: 7%;
+    }
 }
