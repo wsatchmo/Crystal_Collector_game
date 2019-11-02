@@ -7,7 +7,7 @@
 
 ###### How to play
 
-Press the start button to begin. Each round a random number between 50 and 150 is chosen. Try to bring your Gems Amount to the exact Bag Size with the crystal costs given. Crystal costs and Bag Size change each round. Blue, red, and yellow crystals rmain the same cost throughout the round; multi crystals change after the third use, and black crystals are different with each use. White crystals are negative, and decrease your Gems Amount -- but can only be used three times each turn.
+Press the start button to begin. Each round a random number between 50 and 150 is chosen. Try to bring your Gems Amount to the exact Bag Size with the crystal costs given. Crystal costs and Bag Size change each round. Blue, red, and yellow crystals remain the same cost throughout the round; multi crystals change after the third use, and black crystals are different with each use. White crystals are negative, and decrease your Gems Amount -- but can only be used three times each round.
 
 ###### Notes on the code
 
