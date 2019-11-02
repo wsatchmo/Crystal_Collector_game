@@ -6,7 +6,6 @@ html, body{
 html {
     height: 100%;
     margin: auto;
-    overflow: scroll;
 }
 
 p{
@@ -74,7 +73,7 @@ p{
 .crystalcontainer{
     width: 200px;
     height: 200px;
-    margin: 10px;
+    margin: 10px auto;
 }
 
 .content{
@@ -103,6 +102,7 @@ p{
     left: 5%;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .crystalimg {
@@ -137,7 +137,7 @@ p{
     -ms-transform: translate(-50%, -50%);
     background-color: rgb(114, 112, 112);
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     opacity: .9;
     text-align: center;
@@ -182,22 +182,22 @@ p{
     z-index: 3;
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1008px){
     .crystalcontainer{
         width: 250px;
         height: 250px;
-        margin: 5px;
+        margin: 15px auto;
     }
 }
 
-@media screen and (max-width: 758px){
+@media screen and (max-width: 757px){
     .crystalcontainer{
         width: 150px;
         height: 150px;
-        margin: 5px;
+        margin: 5px auto;
     }
     .crystalbtn{
-        font-size: 12px;
+        font-size: 14px;
     }
     .heading{
         padding: 10px;
@@ -214,6 +214,10 @@ p{
     .maincontent{
         height: 220px;
     }
+}
+
+@media screen and (max-width: 550px){
+    /*MAKE PICS SHIFT RIGHT WAY*/
 }
 
 @media screen and (max-width: 410px){
@@ -246,7 +250,7 @@ p{
     .crystalcontainer{
         width: 100px;
         height: 100px;
-        margin: 2px;
+        margin: 2px auto;
         margin: 7%;
     }
 }
