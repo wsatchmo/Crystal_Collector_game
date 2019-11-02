@@ -5,11 +5,11 @@
 
 ### A simple but fun math game. 
 
-######How to play
+###### How to play
 
 Press the start button to begin. Each round a random number between 50 and 150 is chosen. Try to bring your Gems Amount to the exact Bag Size with the crystal costs given. Crystal costs and Bag Size change each round. Blue, red, and yellow crystals rmain the same cost throughout the round; multi crystals change after the third use, and black crystals are different with each use. White crystals are negative, and decrease your Gems Amount -- but can only be used three times each turn.
 
-######Notes on the code
+###### Notes on the code
 
 Change the images in the *images* folder to create a new theme. You'll also likely want to change the fonts (in the *fonts* folder), as well as the audio, which is currently **Clink.wav** in the master folder. This corresponds to the link in the *audio* tag on the html.
 
