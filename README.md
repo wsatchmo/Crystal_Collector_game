@@ -1,4 +1,4 @@
-# Simple_RPG_game
+# Crystal_Collector_game
 ```diff
 +++ Crystal Collector +++
 ```
