@@ -1,4 +1,4 @@
-html, body{
+shtml, body{
     min-width: 320px;
     max-width: 1614px;
 }
@@ -47,6 +47,12 @@ p{
 .game-explain{
     margin-top: 30px;
     margin-bottom: 100px;
+}
+
+.strong-p {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .background{
@@ -173,12 +179,12 @@ p{
 }
 
 .logo-img{
-    position: fixed;
     height: 40px;
     width: 40px;
     bottom: 0px;
     display: block;
-    margin: 0 50% 0 50%;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 3;
 }
 
