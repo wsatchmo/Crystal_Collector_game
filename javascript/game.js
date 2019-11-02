@@ -1,11 +1,16 @@
 var winCount = 0;
 var lossCount = 0;
+var whiteCount = 0;
+var multiCount = 0;
 var blueRandom;
 var redRandom;
 var yellowRandom;
 var multiRandom;
+var blackRandom;
+var whiteRandom;
 var scoreNum;
 var goalNum;
+var sound = document.getElementById("audio");
 
 function clearScore(){
     //reset wins and losses and display
@@ -16,9 +21,11 @@ function clearScore(){
     newGame();
 }
 $(".startgame").click(clearScore);
-
+    //bluecrystal begin
 $(".bluecrystal").click(function(){
     //add to scorenum and display; check score against goal
+    sound.currentTime = 0;
+    sound.play();
     scoreNum += blueRandom;
     $(".scorenum").text(scoreNum);
     scoreCheck();
@@ -26,8 +33,11 @@ $(".bluecrystal").click(function(){
     if (isNaN(scoreNum)){
         $(".scorenum").text("Press Start");
     }
-}); //repeat for other crystals
+}); //bluecrystal end
+//repeat for other crystals
 $(".redcrystal").click(function(){
+    sound.currentTime = 0;
+    sound.play();
     scoreNum += redRandom;
     $(".scorenum").text(scoreNum);
     scoreCheck();
@@ -36,6 +46,8 @@ $(".redcrystal").click(function(){
     }
 });
 $(".yellowcrystal").click(function(){
+    sound.currentTime = 0;
+    sound.play();
     scoreNum += yellowRandom;
     $(".scorenum").text(scoreNum);
     scoreCheck();
@@ -44,14 +56,34 @@ $(".yellowcrystal").click(function(){
     }
 });
 $(".multicrystal").click(function(){
-    scoreNum += multiRandom;
-    $(".scorenum").text(scoreNum);
-    scoreCheck();
-    if (isNaN(scoreNum)){
-        $(".scorenum").text("Press Start");
+    sound.currentTime = 0;
+    sound.play();
+    if (multiCount < 3){
+        scoreNum += multiRandom;
+        $(".scorenum").text(scoreNum);
+        multiCount++;
+        scoreCheck();
+        if (multiCount === 3 || multiCount > 3){
+            $(".multicrystal").text("Multi Crystal: ?");
+        }
+        if (isNaN(scoreNum)){
+            $(".scorenum").text("Press Start");
+        }
+    } else {
+        multiRandom = Math.floor(Math.random() * 8) + 10;
+        scoreNum += multiRandom;
+        $(".scorenum").text(scoreNum);
+        $(".multicrystal").text("Multi Crystal: ?");
+        scoreCheck();
+        if (isNaN(scoreNum)){
+            $(".scorenum").text("Press Start");
+        }
     }
 });
 $(".blackcrystal").click(function(){
+    sound.currentTime = 0;
+    sound.play();
+    blackRandom = Math.floor(Math.random() * 40) + 2;
     scoreNum += blackRandom;
     $(".scorenum").text(scoreNum);
     scoreCheck();
@@ -60,11 +92,21 @@ $(".blackcrystal").click(function(){
     }
 });
 $(".whitecrystal").click(function(){
-    scoreNum -= whiteRandom;
-    $(".scorenum").text(scoreNum);
-    scoreCheck();
-    if (isNaN(scoreNum)){
-        $(".scorenum").text("Press Start");
+    if (whiteCount < 3){
+        sound.currentTime = 0;
+        sound.play();
+        scoreNum -= whiteRandom;
+        $(".scorenum").text(scoreNum);
+        whiteCount++;
+        scoreCheck();
+        if (whiteCount === 3){
+            $(".whitecrystal").text("Out of Uses");
+        }
+        if (isNaN(scoreNum)){
+            $(".scorenum").text("Press Start");
+        }
+    } else {
+        $(".whitecrystal").text("Out of Uses");
     }
 });
 
@@ -73,6 +115,8 @@ function newGame(){
     goalNum = Math.floor(Math.random() * 100) + 50;
     $(".goalnum").text(goalNum);
     //set score number and update it
+    whiteCount = 0;
+    multiCount = 0;
     scoreNum = 0;
     $(".scorenum").text(scoreNum);
     //set crystal worths
@@ -80,7 +124,6 @@ function newGame(){
     redRandom = Math.floor(Math.random() * 7) + 5;
     yellowRandom = Math.floor(Math.random() * 7) + 7;
     multiRandom = Math.floor(Math.random() * 8) + 10;
-    blackRandom = Math.floor(Math.random() * 40) + 2;
     whiteRandom = Math.floor(Math.random() * 5) + 7;
     //display on button
     $(".bluecrystal").text("Blue Crystal: " + blueRandom);

@@ -9,6 +9,14 @@ html {
     overflow: scroll;
 }
 
+p{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 21px;
+    font-family: Perisphere;
+    text-align: center;
+}
+
 @font-face {
     font-family: 'Blanka-Regular';
     src: url('../fonts/Blanka-Regular.otf');
@@ -35,6 +43,11 @@ html {
     src: url('../fonts/Chronic-Outline.otf');
     font-weight: normal;
     font-style: normal;
+}
+
+.game-explain{
+    margin-top: 30px;
+    margin-bottom: 100px;
 }
 
 .background{
