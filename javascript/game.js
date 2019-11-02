@@ -21,6 +21,7 @@ function clearScore(){
     newGame();
 }
 $(".startgame").click(clearScore);
+
     //bluecrystal begin
 $(".bluecrystal").click(function(){
     //add to scorenum and display; check score against goal
@@ -157,4 +158,4 @@ function scoreCheck(){
         //start a new game
         newGame();
     }
-}      
+}
