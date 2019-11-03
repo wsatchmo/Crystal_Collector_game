@@ -18,6 +18,7 @@ function clearScore(){
     lossCount = 0;
     $(".wins").text(winCount);
     $(".losses").text(lossCount);
+    $(".gamestat").text("-----");
     newGame();
 }
 $(".startgame").click(clearScore);
