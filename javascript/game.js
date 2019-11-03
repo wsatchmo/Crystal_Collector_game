@@ -85,9 +85,15 @@ $(".multicrystal").click(function(){
 $(".blackcrystal").click(function(){
     sound.currentTime = 0;
     sound.play();
-    blackRandom = Math.floor(Math.random() * 40) + 2;
-    scoreNum += blackRandom;
-    $(".scorenum").text(scoreNum);
+    var randomNum = Math.floor(Math.random() * 7);
+    blackRandom = Math.floor(Math.random() * 44) + 1;
+    if (randomNum !== 5){
+        scoreNum += blackRandom;
+        $(".scorenum").text(scoreNum);
+    } else {
+        scoreNum -= blackRandom;
+        $(".scorenum").text(scoreNum);
+    }
     scoreCheck();
     if (isNaN(scoreNum)){
         $(".scorenum").text("Press Start");
